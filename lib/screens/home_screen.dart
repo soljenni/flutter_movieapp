@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../widgets/bottom_navbar.dart';
 export 'home_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,22 +12,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Container(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(
-              icon: IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
-              label: 'home'),
-          BottomNavigationBarItem(
-              icon:
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-              label: 'Search'),
-          BottomNavigationBarItem(
-              icon:
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
-              label: 'Profile')
-        ],
-      ),
+      bottomNavigationBar: const BottomNavBar(index: 0),
     );
+  }
+}
+
+
   }
 }
