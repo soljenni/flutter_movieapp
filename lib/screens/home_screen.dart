@@ -10,7 +10,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("News App", style: TextStyle(color: Colors.black)),
+        backgroundColor: Colors.white,
+      ),
       body: Container(),
       bottomNavigationBar: const BottomNavBar(index: 0),
     );
@@ -18,5 +21,6 @@ class HomeScreen extends StatelessWidget {
 }
 
 
-  }
-}
+
+// Your API key is: 0c80848bcbc54f0c8fd65c703a75cd51
+
