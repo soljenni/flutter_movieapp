@@ -7,6 +7,6 @@ class ArticleScreen extends StatelessWidget {
   static const routeName = '/article';
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
