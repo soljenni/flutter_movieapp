@@ -13,10 +13,25 @@ class MovieItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        child: GridTile(child: Image.network(imageUrl, fit: BoxFit.cover, errorBuilder: (context, error, stackTrace) 
-        {
-
-
-        };)));
+      child: GridTile(
+          child: Image.network(imageUrl, fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+            return Container(
+                color: Colors.white,
+                child: LayoutBuilder(
+                  builder: (context, constraint) {
+                    return Icon(Icons.error_outline_sharp,
+                        color: Colors.red, size: constraint.biggest.width);
+                  },
+                ));
+          }),
+          footer: GridTileBar(
+              backgroundColor: Colors.black,
+              title: Text(
+                title,
+                textAlign: TextAlign.start,
+              ))),
+      onTap: () {},
+    );
   }
 }

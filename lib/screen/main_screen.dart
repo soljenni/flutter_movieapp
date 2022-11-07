@@ -42,6 +42,6 @@ class _MainScreenState extends State<MainScreen> {
         appBar: AppBar(
           title: Text("Movies"),
         ),
-        body: Center(child: Text(" screen body")));
+        body: Center(child: Text("screeno body")));
   }
 }
