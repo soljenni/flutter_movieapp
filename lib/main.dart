@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/discover_screen.dart';
-import 'screens/article_screen.dart';
+import 'package:newsapp/screen/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,11 +18,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
-        initialRoute: '/',
-        routes: {
-          HomeScreen.routeName: (context) => HomeScreen(),
-          DiscoverScreen.routeName: (context) => const DiscoverScreen(),
-          ArticleScreen.routeName: (context) => const ArticleScreen(),
-        });
+        home: MainScreen());
   }
 }
