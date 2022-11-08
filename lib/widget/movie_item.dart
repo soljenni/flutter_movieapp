@@ -14,6 +14,12 @@ class MovieItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: GridTile(
+          footer: GridTileBar(
+              backgroundColor: Colors.black,
+              title: Text(
+                title,
+                textAlign: TextAlign.start,
+              )),
           child: Image.network(imageUrl, fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
             return Container(
@@ -24,13 +30,7 @@ class MovieItem extends StatelessWidget {
                         color: Colors.red, size: constraint.biggest.width);
                   },
                 ));
-          }),
-          footer: GridTileBar(
-              backgroundColor: Colors.black,
-              title: Text(
-                title,
-                textAlign: TextAlign.start,
-              ))),
+          })),
       onTap: () {},
     );
   }

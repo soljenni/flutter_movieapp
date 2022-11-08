@@ -17,10 +17,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   List<Movie> movies = [];
-  int page = 1;
+  int _page = 1;
 
   void initState() {
-    populateMovies(page);
+    super.initState();
+    populateMovies(_page);
   }
 
   Future<List<Movie>> fetchMovies(int page) async {
@@ -43,11 +44,22 @@ class _MainScreenState extends State<MainScreen> {
       movies.addAll(myMovies);
     });
 
-    page += 1;
+    _page += 1;
+    print("populating " + page.toString());
   }
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _controller = ScrollController();
+    _controller.addListener(() {
+      if (_controller.offset >= _controller.position.maxScrollExtent &&
+          !_controller.position.outOfRange) {
+        setState(() {
+          populateMovies(_page);
+        });
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Movies"),
@@ -64,7 +76,8 @@ class _MainScreenState extends State<MainScreen> {
               itemBuilder: (ctx, index) => MovieItem(
                   movies[index].id, movies[index].image, movies[index].title),
               itemCount: movies.length,
-              padding: EdgeInsets.all(10)),
+              padding: EdgeInsets.all(10),
+              controller: _controller),
     );
   }
 }
