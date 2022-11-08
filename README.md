@@ -7,7 +7,8 @@ timeline
 11.9 ~ 11.14 : develope movieapp based on flutter
 
 
-11.8
+
 ![image](https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png)
 
 
+![image](https://user-images.githubusercontent.com/53465675/200480238-d76e0400-a7f5-4e9c-bc9c-185712674d66.png)
