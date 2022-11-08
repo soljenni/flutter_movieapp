@@ -9,7 +9,7 @@ timeline
 
 11.8 -- 
 
-![title](https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png)){: width="100" height="100"}
+![title](https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png){: width="100" height="100"}
 
 
 1) pagination library 확인하기
