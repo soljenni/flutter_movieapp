@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/screen/movie_detail_screen.dart';
 
 class MovieItem extends StatelessWidget {
   final int id;
@@ -31,7 +32,9 @@ class MovieItem extends StatelessWidget {
                   },
                 ));
           })),
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, MovieDetail.routeName);
+      },
     );
   }
 }
