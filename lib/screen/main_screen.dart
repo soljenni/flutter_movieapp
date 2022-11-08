@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import '../models/movie.dart';
 import 'package:http/http.dart' as http;
 
+import '../widget/movie_item.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -15,10 +17,15 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   List<Movie> movies = [];
+  int page = 1;
 
-  Future<List<Movie>> fetchMovies() async {
-    final response = await http
-        .get(Uri.parse("https://www.episodate.com/api/most-popular?page=1"));
+  void initState() {
+    populateMovies(page);
+  }
+
+  Future<List<Movie>> fetchMovies(int page) async {
+    final response = await http.get(
+        Uri.parse("https://www.episodate.com/api/most-popular?page=$page"));
 
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
@@ -30,18 +37,34 @@ class _MainScreenState extends State<MainScreen> {
     }
   }
 
-  void populateMovies() async {
-    final myMovies = await fetchMovies();
-    movies.addAll(myMovies);
+  void populateMovies(int page) async {
+    final myMovies = await fetchMovies(page);
+    setState(() {
+      movies.addAll(myMovies);
+    });
+
+    page += 1;
   }
 
   @override
   Widget build(BuildContext context) {
-    populateMovies();
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Movies"),
-        ),
-        body: Center(child: Text("screeno body")));
+      appBar: AppBar(
+        title: Text("Movies"),
+      ),
+      body: movies.isEmpty
+          ? Center(child: CircularProgressIndicator())
+          : GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 3 / 4,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 30,
+              ),
+              itemBuilder: (ctx, index) => MovieItem(
+                  movies[index].id, movies[index].image, movies[index].title),
+              itemCount: movies.length,
+              padding: EdgeInsets.all(10)),
+    );
   }
 }
