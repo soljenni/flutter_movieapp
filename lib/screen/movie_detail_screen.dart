@@ -25,6 +25,10 @@ class MovieDetail extends StatelessWidget {
       final result = jsonDecode(response.body);
       final list = result['tvShow'];
       print(list);
+
+      _id = list['id'];
+      _title = list['name'];
+      _imageUrl = list['image_thumbnail_path'];
     }
   }
 
@@ -35,11 +39,28 @@ class MovieDetail extends StatelessWidget {
     return FutureBuilder(
         future: fetchDetails(_movieId.id),
         builder: (context, data) {
+          while (_id == null) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           return Scaffold(
-            appBar: AppBar(
-              title: Text("Detail"),
-            ),
-          );
+              appBar: AppBar(
+                title: Text(_title),
+              ),
+              body: SingleChildScrollView(
+                  child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                          padding: EdgeInsets.only(left: 10, top: 10),
+                          width: 200,
+                          child: Image.network(_imageUrl, fit: BoxFit.contain))
+                    ],
+                  )
+                ],
+              )));
         });
   }
 }
