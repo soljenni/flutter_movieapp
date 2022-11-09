@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
 
-      final list = result['tv_shows'];
+      Iterable list = result['tv_shows'];
       return list.map((e) => Movie.fromJson(e)).toList();
     } else {
       throw Exception("failed");

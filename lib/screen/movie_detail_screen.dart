@@ -21,14 +21,10 @@ class MovieDetail extends StatelessWidget {
 
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
-      final list = result["tvShow"];
-      _id = list['id'];
-      _title = list['name'];
-      _description = list['description'];
-      _start = list['start_date'];
-      _imageUrl = list['image_thumbnail_path'];
-      _genres = list['genres'];
+      final list = result['tvShow'];
+      print(result);
     }
+    print(result);
   }
 
   @override
@@ -36,20 +32,13 @@ class MovieDetail extends StatelessWidget {
     final _movieId = ModalRoute.of(context)!.settings.arguments.toString();
 
     return FutureBuilder(
-      future: fetchDetails(_movieId),
-      builder: (context, data){
-        while(_id == null){
-          return const Center(child: CircularProgressIndicator(),);
-        }
-      }
-
-      return Scaffold(
-
-appBar: AppBar( title: Text(_title),),
-
-      )
-      
-      ),
-    ;
+        future: fetchDetails(_movieId),
+        builder: (context, data) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("shit"),
+            ),
+          );
+        });
   }
 }
