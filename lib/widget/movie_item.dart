@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/screen/movie_detail_screen.dart';
 
+// defining the arguments that needs to be transfered
+
 class MovieItem extends StatelessWidget {
   final int id;
   final String imageUrl;
@@ -11,6 +13,7 @@ class MovieItem extends StatelessWidget {
     this.imageUrl,
     this.title,
   );
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -33,7 +36,8 @@ class MovieItem extends StatelessWidget {
                 ));
           })),
       onTap: () {
-        Navigator.pushNamed(context, MovieDetail.routeName);
+        Navigator.pushNamed(context, MovieDetail.routeName,
+            arguments: MovieItem(id, imageUrl, title));
       },
     );
   }

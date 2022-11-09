@@ -1,11 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-
 import '../models/movie.dart';
 import 'package:http/http.dart' as http;
-
 import '../widget/movie_item.dart';
 
 class MainScreen extends StatefulWidget {
@@ -22,6 +19,8 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     populateMovies(_page);
+
+    // loading data when the page initializes
   }
 
   Future<List<Movie>> fetchMovies(int page) async {

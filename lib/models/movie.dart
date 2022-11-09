@@ -1,7 +1,7 @@
 class Movie {
-  final int id;
-  final String image;
-  final String title;
+  int id;
+  String image;
+  String title;
 
   Movie({
     required this.id,
