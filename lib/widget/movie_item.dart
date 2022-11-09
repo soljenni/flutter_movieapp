@@ -16,7 +16,7 @@ class MovieItem extends StatelessWidget {
     return InkWell(
       child: GridTile(
           footer: GridTileBar(
-              backgroundColor: Colors.black,
+              backgroundColor: Color.fromARGB(255, 61, 61, 61),
               title: Text(
                 title,
                 textAlign: TextAlign.start,

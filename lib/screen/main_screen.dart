@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
 
-      Iterable list = result['tv_shows'];
+      final list = result['tv_shows'];
       return list.map((e) => Movie.fromJson(e)).toList();
     } else {
       throw Exception("failed");
@@ -62,6 +62,7 @@ class _MainScreenState extends State<MainScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("Movies"),
       ),
       body: movies.isEmpty
