@@ -24,7 +24,6 @@ class MovieDetail extends StatelessWidget {
       final list = result['tvShow'];
       print(result);
     }
-    print(result);
   }
 
   @override

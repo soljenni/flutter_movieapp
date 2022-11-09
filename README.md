@@ -6,14 +6,20 @@ timeline
 
 11.9 ~ 11.14 : develope movieapp based on flutter
 
+11.8 --
 
-11.8 -- 
+<img src="https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png" width="300" height="400">
 
-![title](https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png)
+1. pagination library 확인하기
 
+2. scrollcontroller 기능파악
 
-1) pagination library 확인하기
+3. click후 detail 렌더링
 
-2) scrollcontroller 기능파악
+   11.9 --
 
-3) click후 detail 렌더링
+4. 페이지 이동시 argument 전달
+
+5. json 구조 파악
+
+6. argument의 변수형 변형
