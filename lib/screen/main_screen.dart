@@ -60,10 +60,12 @@ class _MainScreenState extends State<MainScreen> {
     });
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Movies"),
-      ),
+      appBar: AppBar(centerTitle: true, title: Text("Movies"), actions: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.search),
+        )
+      ]),
       body: movies.isEmpty
           ? Center(child: CircularProgressIndicator())
           : GridView.builder(
