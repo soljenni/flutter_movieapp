@@ -8,7 +8,7 @@ timeline
 
 11.8 --
 
-<img src="https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png" width="300" height="400">
+<img src="https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png" width="300" height="500">
 
 1. pagination library 확인하기
 
@@ -23,3 +23,5 @@ timeline
 5. json 구조 파악
 
 6. argument의 변수형 변형
+
+<img src="./image/detail.png" width="300" height="500">
