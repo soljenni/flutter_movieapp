@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../models/movie.dart';
 import 'package:http/http.dart' as http;
 import '../widget/movie_item.dart';
-import '../widget/search.dart';
+
 import 'movie_search_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,12 +18,12 @@ class _MainScreenState extends State<MainScreen> {
   List<Movie> movies = [];
   int _page = 1;
 
-  void initState() {
-    super.initState();
-    populateMovies(_page);
+  // void initState() {
+  //   super.initState();
+  //   populateMovies(_page);
 
-    // loading data when the page initializes
-  }
+  //   // loading data when the page initializes
+  // }
 
   Future<List<Movie>> fetchMovies(int page) async {
     final response = await http.get(
@@ -65,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(centerTitle: true, title: Text("Movies"), actions: [
         IconButton(
           onPressed: () {
-            showSearch(context: context, delegate: SearchVideo());
+            Navigator.pushNamed(context, SearchVideos.routeName);
           },
           icon: Icon(Icons.search),
         )

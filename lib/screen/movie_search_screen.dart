@@ -15,6 +15,12 @@ class SearchVideos extends StatefulWidget {
 class SearchVideosState extends State<SearchVideos> {
   List<Movie> movies = [];
   int _page = 1;
+  String query = "";
+
+  void initState() {
+    super.initState();
+    searchVideos(_page, query);
+  }
 
   Future<List<Movie>> searchMovies(int page, String query) async {
     final response = await http.get(
@@ -37,19 +43,39 @@ class SearchVideosState extends State<SearchVideos> {
     });
 
     _page += 1;
-    print("populating " + page.toString());
+    print("populating " + _page.toString());
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: searchMovies(_page, "shit"),
+        future: searchMovies(_page, "wait"),
         builder: (context, data) {
           return Scaffold(
-            appBar: AppBar(
-              title: Text("wait"),
-            ),
-          );
+              appBar: AppBar(
+                centerTitle: true,
+                title: Text("Search"),
+              ),
+              body: Column(
+                children: [
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: TextField(
+                        // onChanged: (value) =>
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromARGB(255, 234, 228, 228),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: BorderSide.none,
+                            ),
+                            prefixIcon: Icon(Icons.search))),
+                  ),
+                  SizedBox(height: 20),
+                ],
+              ));
         });
   }
 }
