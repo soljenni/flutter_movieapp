@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import '../models/movie.dart';
+import '../widget/movie_item.dart';
 
 class SearchVideos extends StatefulWidget {
   const SearchVideos({super.key});
@@ -15,12 +16,12 @@ class SearchVideos extends StatefulWidget {
 class SearchVideosState extends State<SearchVideos> {
   List<Movie> movies = [];
   int _page = 1;
-  String query = "";
+  String _query = "";
 
-  void initState() {
-    super.initState();
-    searchVideos(_page, query);
-  }
+  // void initState() {
+  //   super.initState();
+  //   searchVideos(_page, query);
+  // }
 
   Future<List<Movie>> searchMovies(int page, String query) async {
     final response = await http.get(
@@ -36,20 +37,30 @@ class SearchVideosState extends State<SearchVideos> {
     }
   }
 
-  void searchVideos(int page, String? query) async {
-    final myMovies = await searchMovies(page, query!);
+  void searchVideos(int page, String query) async {
+    final myMovies = await searchMovies(page, query);
     setState(() {
       movies.addAll(myMovies);
+      _query = query;
     });
-
+    print("populating " + _page.toString() + query);
     _page += 1;
-    print("populating " + _page.toString());
   }
 
   @override
   Widget build(BuildContext context) {
+    final ScrollController _controller = ScrollController();
+    _controller.addListener(() {
+      if (_controller.offset >= _controller.position.maxScrollExtent &&
+          !_controller.position.outOfRange) {
+        setState(() {
+          searchVideos(_page, _query);
+        });
+      }
+    });
+
     return FutureBuilder(
-        future: searchMovies(_page, "wait"),
+        future: searchMovies(_page, _query),
         builder: (context, data) {
           return Scaffold(
               appBar: AppBar(
@@ -62,7 +73,7 @@ class SearchVideosState extends State<SearchVideos> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextField(
-                        // onChanged: (value) =>
+                        onSubmitted: (value) => searchVideos(_page, value),
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
                             filled: true,
@@ -74,6 +85,24 @@ class SearchVideosState extends State<SearchVideos> {
                             prefixIcon: Icon(Icons.search))),
                   ),
                   SizedBox(height: 20),
+                  Expanded(
+                      child: movies.isEmpty
+                          ? Center(child: CircularProgressIndicator())
+                          : GridView.builder(
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                childAspectRatio: 3 / 4,
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 30,
+                              ),
+                              itemBuilder: (ctx, index) => MovieItem(
+                                  movies[index].id,
+                                  movies[index].image,
+                                  movies[index].title),
+                              itemCount: movies.length,
+                              padding: EdgeInsets.all(10),
+                              controller: _controller)),
                 ],
               ));
         });

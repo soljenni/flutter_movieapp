@@ -18,12 +18,12 @@ class _MainScreenState extends State<MainScreen> {
   List<Movie> movies = [];
   int _page = 1;
 
-  // void initState() {
-  //   super.initState();
-  //   populateMovies(_page);
+  void initState() {
+    super.initState();
+    populateMovies(_page);
 
-  //   // loading data when the page initializes
-  // }
+    // loading data when the page initializes
+  }
 
   Future<List<Movie>> fetchMovies(int page) async {
     final response = await http.get(
