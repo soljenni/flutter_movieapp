@@ -42,4 +42,11 @@ timeline
 
 7.3. search library 활용(불가능)
 
--> searchDelegate를 쓰려고 하였으나 활용하는 api가 scroll를 내리면서 url에 page를 받아야하는 구조. 따라서 statefulwidget을 써야함.또한 dart는 클래스 상속이 하나밖에 되지 않음. 따라서 search library버리고 statefulwidget을 써야함.
+-> searchDelegate를 쓰려고 하였으나 활용하는 api가 scroll를 내리면서 url에 page를 받아야하는 구조.
+따라서 statefulwidget을 써야함.또한 dart는 클래스 상속이 하나밖에 되지 않음. 따라서 search library버리고 statefulwidget을 써야함.
+
+7.4. search route 부분구현 
+-> 문제점: onsubmit후에 api 가져와서 화면에 뿌리는 구조임. 그러나 textField에서 글자를 한개씩 지울때 에러뜸. 
+이유는 stackoverflow에도 안나옴. api 문제가 있는듯.
+-> 가능한 대안: onchange에서 movie list를 진공으로 만들면서 scaffold에서 json을 못 뿌리게 막아야함. 
+
