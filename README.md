@@ -50,3 +50,6 @@ timeline
 이유는 stackoverflow에도 안나옴. api 문제가 있는듯.
 -> 가능한 대안: onchange에서 movie list를 진공으로 만들면서 scaffold에서 json을 못 뿌리게 막아야함. 
 
+
+<img width="300" height="600" alt="search_dollar" src="https://user-images.githubusercontent.com/53465675/201346430-69ec42d6-e3a8-4101-b981-694c559077d6.png">
+
