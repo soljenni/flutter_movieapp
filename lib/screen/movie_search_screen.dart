@@ -17,6 +17,7 @@ class SearchVideosState extends State<SearchVideos> {
   List<Movie> movies = [];
   int _page = 1;
   String _query = "";
+  late int pages;
 
   // void initState() {
   //   super.initState();
@@ -31,6 +32,9 @@ class SearchVideosState extends State<SearchVideos> {
       final result = jsonDecode(response.body);
 
       Iterable list = result['tv_shows'];
+      setState(() {
+        pages = result["pages"];
+      });
       return list.map((e) => Movie.fromJson(e)).toList();
     } else {
       throw Exception("failed");
@@ -52,11 +56,14 @@ class SearchVideosState extends State<SearchVideos> {
     final ScrollController _controller = ScrollController();
     _controller.addListener(() {
       if (_controller.offset >= _controller.position.maxScrollExtent &&
-          !_controller.position.outOfRange) {
+          !_controller.position.outOfRange &&
+          pages >= _page) {
         setState(() {
           searchVideos(_page, _query);
         });
-      }
+      } else if (_controller.offset >= _controller.position.maxScrollExtent &&
+          !_controller.position.outOfRange &&
+          _page > pages) {}
     });
 
     return FutureBuilder(
@@ -73,6 +80,9 @@ class SearchVideosState extends State<SearchVideos> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextField(
+                        onChanged: ((value) {
+                          Center(child: Text("search for the movie"));
+                        }),
                         onSubmitted: (value) => searchVideos(_page, value),
                         style: TextStyle(color: Colors.black),
                         decoration: InputDecoration(
@@ -87,7 +97,7 @@ class SearchVideosState extends State<SearchVideos> {
                   SizedBox(height: 20),
                   Expanded(
                       child: movies.isEmpty
-                          ? Center(child: CircularProgressIndicator())
+                          ? Center(child: Text("search for the movie"))
                           : GridView.builder(
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
