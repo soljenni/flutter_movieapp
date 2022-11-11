@@ -15,6 +15,7 @@ class SearchVideos extends StatefulWidget {
 class SearchVideosState extends State<SearchVideos> {
   List<Movie> movies = [];
   int _page = 1;
+
   Future<List<Movie>> searchMovies(int page, String query) async {
     final response = await http.get(
         Uri.parse("https://www.episodate.com/api/search?q=$query&page=$page"));
@@ -41,6 +42,14 @@ class SearchVideosState extends State<SearchVideos> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FutureBuilder(
+        future: searchMovies(1, "wait"),
+        builder: (context, data) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("wait"),
+            ),
+          );
+        });
   }
 }
