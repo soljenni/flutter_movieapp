@@ -32,9 +32,11 @@ class SearchVideosState extends State<SearchVideos> {
       final result = jsonDecode(response.body);
 
       Iterable list = result['tv_shows'];
-      setState(() {
-        pages = result["pages"];
-      });
+      if (mounted) {
+        setState(() {
+          pages = result["pages"];
+        });
+      }
       return list.map((e) => Movie.fromJson(e)).toList();
     } else {
       throw Exception("failed");
@@ -81,7 +83,8 @@ class SearchVideosState extends State<SearchVideos> {
                     padding: const EdgeInsets.all(20.0),
                     child: TextField(
                         onChanged: ((value) {
-                          Center(child: Text("search for the movie"));
+                          movies = [];
+                          _page = 1;
                         }),
                         onSubmitted: (value) => searchVideos(_page, value),
                         style: TextStyle(color: Colors.black),

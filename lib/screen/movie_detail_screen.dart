@@ -79,7 +79,8 @@ class MovieDetail extends StatelessWidget {
                           CircleAvatar(
                               backgroundColor: Color(0xFFFFC400),
                               child: Text(
-                                  double.parse(_rating).toStringAsFixed(1),
+                                  double.parse(_rating.toString())
+                                      .toStringAsFixed(1),
                                   style:
                                       TextStyle(fontWeight: FontWeight.bold))),
                           SizedBox(height: 20),
