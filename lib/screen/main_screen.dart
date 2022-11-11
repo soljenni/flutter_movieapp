@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../models/movie.dart';
 import 'package:http/http.dart' as http;
 import '../widget/movie_item.dart';
+import '../widget/search.dart';
 import 'movie_search_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -64,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(centerTitle: true, title: Text("Movies"), actions: [
         IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, SearchVideos.routeName);
+            showSearch(context: context, delegate: SearchVideo());
           },
           icon: Icon(Icons.search),
         )

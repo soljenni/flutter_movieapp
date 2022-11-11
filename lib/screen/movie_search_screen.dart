@@ -30,8 +30,8 @@ class SearchVideosState extends State<SearchVideos> {
     }
   }
 
-  void searchVideos(int page, String query) async {
-    final myMovies = await searchMovies(page, query);
+  void searchVideos(int page, String? query) async {
+    final myMovies = await searchMovies(page, query!);
     setState(() {
       movies.addAll(myMovies);
     });
@@ -43,7 +43,7 @@ class SearchVideosState extends State<SearchVideos> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: searchMovies(1, "wait"),
+        future: searchMovies(_page, "shit"),
         builder: (context, data) {
           return Scaffold(
             appBar: AppBar(
