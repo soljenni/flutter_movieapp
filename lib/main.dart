@@ -27,3 +27,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// every widgets are the instances that are created throuth classes

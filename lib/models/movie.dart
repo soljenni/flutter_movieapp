@@ -14,6 +14,9 @@ class Movie {
       id: json['id'],
       image: json['image_thumbnail_path'],
       title: json['name'],
+
+      // deserialize the json (string -> data)
+      // : convert json string to movie.json
     );
   }
 }

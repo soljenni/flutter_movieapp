@@ -1,11 +1,11 @@
-import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import '../models/movie.dart';
 import 'package:http/http.dart' as http;
 import '../widget/movie_item.dart';
-
 import 'movie_search_screen.dart';
+
+// to maintain the state within the widget tree, 'key' is used
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
