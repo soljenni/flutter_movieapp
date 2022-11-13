@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/screen/main_screen.dart';
 import 'package:newsapp/screen/movie_detail_screen.dart';
+import 'package:newsapp/screen/movie_menu_screen.dart';
 import 'package:newsapp/screen/movie_search_screen.dart';
 
 void main() {
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MainScreen(),
       routes: {
+        MenuVideos.routeName: (ctx) => MenuVideos(),
         MovieDetail.routeName: (ctx) => MovieDetail(),
         SearchVideos.routeName: (ctx) => SearchVideos(),
       },

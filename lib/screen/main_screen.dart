@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:newsapp/screen/movie_menu_screen.dart';
 import 'dart:convert';
 import '../models/movie.dart';
 import 'package:http/http.dart' as http;
@@ -79,14 +80,23 @@ class _MainScreenState extends State<MainScreen> {
     });
 
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: Text("Movies"), actions: [
-        IconButton(
-          onPressed: () {
-            Navigator.pushNamed(context, SearchVideos.routeName);
-          },
-          icon: Icon(Icons.search),
-        )
-      ]),
+      appBar: AppBar(
+          centerTitle: true,
+          title: Text("Movies"),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, MenuVideos.routeName);
+            },
+            icon: Icon(Icons.menu),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, SearchVideos.routeName);
+              },
+              icon: Icon(Icons.search),
+            )
+          ]),
       body: movies.isEmpty
           ? Center(child: CircularProgressIndicator())
           : GridView.builder(
