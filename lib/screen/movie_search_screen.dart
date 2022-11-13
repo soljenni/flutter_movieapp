@@ -31,7 +31,7 @@ class SearchVideosState extends State<SearchVideos> {
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
 
-      Iterable list = result['tv_shows'];
+      List list = result['tv_shows'];
       if (mounted) {
         setState(() {
           pages = result["pages"];

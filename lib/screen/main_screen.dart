@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
 
-      Iterable list = result['tv_shows'];
+      List list = result['tv_shows'];
       return list.map((e) => Movie.fromJson(e)).toList();
     } else {
       throw Exception("failed");
@@ -47,6 +47,11 @@ class _MainScreenState extends State<MainScreen> {
     setState(() {
       movies.addAll(myMovies);
     });
+
+// setState docs
+// Calling setState notifies the framework that the internal state of this object has changed in a way that might impact the user interface in this subtree, which causes the framework to schedule a build for this State object.
+
+// So if the state of the widget changes you have to call setState to trigger a rebuild of the view and see immediatly the changes implied by the new state.
 
     _page += 1;
     print("populating " + page.toString());

@@ -60,4 +60,14 @@ timeline
 9. asynchronous programming
 
 - future(uncomplete, completed w/ value, complete w/ error) & futurebuilder
-- iterable
+- iterable vs list
+
+10. mouse scroll function added
+
+11. \*\*\*setState -> trigger a rebuild of the view whenever the widget changes
+
+---11.13---
+
+12. scroll bottom일 경우 top 이동 구현
+
+13. renderflex overflow 오류

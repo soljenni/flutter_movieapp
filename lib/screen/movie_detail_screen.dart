@@ -23,8 +23,7 @@ class MovieDetail extends StatelessWidget {
 
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);
-      final list = result['tvShow'];
-      print(list);
+      Map list = result['tvShow'];
 
       _id = list['id'];
       _title = list['name'];
@@ -50,6 +49,7 @@ class MovieDetail extends StatelessWidget {
           }
           return Scaffold(
               appBar: AppBar(
+                centerTitle: true,
                 title: Text(_title),
               ),
               body: SingleChildScrollView(
