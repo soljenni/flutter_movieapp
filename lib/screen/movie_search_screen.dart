@@ -26,7 +26,7 @@ class SearchVideosState extends State<SearchVideos> {
 
   Future<List<Movie>> searchMovies(int page, String query) async {
     final response = await http.get(
-        Uri.parse("https://www.episodate.com/api/search?q=$query&page=$page"));
+        Uri.parse("http://www.episodate.com/api/search?q=$query&page=$page"));
 
     if (response.statusCode == 200) {
       final result = jsonDecode(response.body);

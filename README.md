@@ -71,3 +71,8 @@ timeline
 12. scroll bottom일 경우 top 이동 구현
 
 13. renderflex overflow 오류
+
+14. 오후 9시 api 호출 제한 걸림
+    -> 일일 호출이 매우 낮은, 안좋은 api 사용
+    error message
+    "Connection closed before full header was received "
