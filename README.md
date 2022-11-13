@@ -76,3 +76,8 @@ timeline
     -> 일일 호출이 매우 낮은, 안좋은 api 사용
     error message
     "Connection closed before full header was received "
+    --> master branch로 publish 후 스마트폰으로 정상작동 확인
+
+---11.14---
+
+15. api 이원화
