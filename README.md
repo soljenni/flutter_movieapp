@@ -6,7 +6,7 @@ timeline
 
 11.9 ~ 11.14 : develope movieapp based on flutter
 
-11.8 --
+---11.8---
 
 <img src="https://user-images.githubusercontent.com/53465675/200480143-cc67078f-eb5f-459a-8351-4ecd5a9d44b1.png" width="300" height="600">
 
@@ -16,7 +16,7 @@ timeline
 
 3. click후 detail 렌더링
 
-   11.9 --
+---11.9---
 
 4. 페이지 이동시 argument 전달
 
@@ -26,7 +26,7 @@ timeline
 
 <img width="300" height="600" src="https://user-images.githubusercontent.com/53465675/200992310-46b2ae4e-3116-4749-8d09-e0021c984f51.png">
 
-11.10--
+---11.10---
 
 7. search route 구현
 
@@ -34,7 +34,7 @@ timeline
 
 7.2. search route로 이동후 query 받으면서 화면하단에 search result render
 
-11.11--
+---11.11---
 
 <img width="300" height="600" alt="search_empty" src="https://user-images.githubusercontent.com/53465675/201268251-bacfab57-2021-4daf-9786-97a8f3bd306c.png">
 
@@ -50,4 +50,14 @@ timeline
 
 <img width="300" height="600" alt="search_dollar" src="https://user-images.githubusercontent.com/53465675/201346430-69ec42d6-e3a8-4101-b981-694c559077d6.png">
 
-7.5. search route 구현
+7.5. search route 구현완료
+
+---11.12---
+(복습)
+
+8. buildcontext, widget tree
+
+9. asynchronous programming
+
+- future(uncomplete, completed w/ value, complete w/ error) & futurebuilder
+- iterable

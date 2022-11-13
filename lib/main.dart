@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/screen/main_screen.dart';
 import 'package:newsapp/screen/movie_detail_screen.dart';
@@ -14,6 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scrollBehavior: MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown
+        },
+      ),
       debugShowCheckedModeBanner: false,
       title: 'MovieAPP_NAV',
       theme: ThemeData(
@@ -29,3 +38,5 @@ class MyApp extends StatelessWidget {
 }
 
 // every widgets are the instances that are created throuth classes
+
+//every widegets has its own build method

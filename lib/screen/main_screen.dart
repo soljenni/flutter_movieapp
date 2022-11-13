@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import '../models/movie.dart';
@@ -25,6 +26,8 @@ class _MainScreenState extends State<MainScreen> {
     // loading data when the page initializes
   }
 
+//Future is a compartment that contain the data that is not present at the moment but will be contained in the future
+
   Future<List<Movie>> fetchMovies(int page) async {
     final response = await http.get(
         Uri.parse("https://www.episodate.com/api/most-popular?page=$page"));
@@ -51,6 +54,15 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    scrollBehavior:
+    MaterialScrollBehavior().copyWith(
+      dragDevices: {
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.touch,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.unknown
+      },
+    );
     final ScrollController _controller = ScrollController();
     _controller.addListener(() {
       if (_controller.offset >= _controller.position.maxScrollExtent &&
