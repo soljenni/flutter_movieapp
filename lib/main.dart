@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       home: MainScreen(),
+      initialRoute: "/",
       routes: {
         MenuVideos.routeName: (ctx) => MenuVideos(),
         MovieDetail.routeName: (ctx) => MovieDetail(),
