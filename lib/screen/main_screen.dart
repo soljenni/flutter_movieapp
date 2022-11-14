@@ -82,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          title: Text("Movies"),
+          title: Text("Movie Home"),
           leading: IconButton(
             onPressed: () {
               Navigator.pushNamed(context, MenuVideos.routeName);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/screen/main_screen.dart';
 import 'package:newsapp/screen/movie_search_screen.dart';
+import 'package:newsapp/widget/movie_toprated.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
 class MenuVideos extends StatefulWidget {
@@ -43,23 +44,23 @@ class _MenuVideosState extends State<MenuVideos> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          title: Text("Movies"),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pushNamed(context, "/");
-            },
-            icon: Icon(Icons.home),
-          ),
-          actions: [
-            IconButton(
+        appBar: AppBar(
+            centerTitle: true,
+            title: Text("Recommendation"),
+            leading: IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, SearchVideos.routeName);
+                Navigator.pushNamed(context, "/");
               },
-              icon: Icon(Icons.search),
-            )
-          ]),
-    );
+              icon: Icon(Icons.home),
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, SearchVideos.routeName);
+                },
+                icon: Icon(Icons.search),
+              )
+            ]),
+        body: ListView(children: [TopRatingMovies]));
   }
 }
