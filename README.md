@@ -80,4 +80,9 @@ timeline
 
 ---11.14---
 
-15. api 이원화
+15. new api called
+
+16. menu route 
+
+<img width="300" height="600" src="https://user-images.githubusercontent.com/53465675/201593730-aacc464c-3551-4cd6-b7be-6b55b1142cbe.png">
+
