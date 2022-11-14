@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/screen/main_screen.dart';
 import 'package:newsapp/screen/movie_search_screen.dart';
 import 'package:newsapp/widget/movie_toprated.dart';
+import 'package:newsapp/widget/movie_trending.dart';
+import 'package:newsapp/widget/movie_upcoming.dart';
+
 import 'package:tmdb_api/tmdb_api.dart';
 
 class MenuVideos extends StatefulWidget {
@@ -61,6 +64,10 @@ class _MenuVideosState extends State<MenuVideos> {
                 icon: Icon(Icons.search),
               )
             ]),
-        body: ListView(children: [TopRatingMovies]));
+        body: ListView(children: [
+          UpcomingMovies(upcoming: upcomingMovies),
+          TrendingMovies(trending: trendingMovies),
+          TopRatingMovies(toprating: topratingMovies)
+        ]));
   }
 }

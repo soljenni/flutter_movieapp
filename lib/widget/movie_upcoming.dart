@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TopRatingMovies extends StatelessWidget {
-  const TopRatingMovies({super.key, required this.toprating});
+class UpcomingMovies extends StatelessWidget {
+  const UpcomingMovies({super.key, required this.upcoming});
 
-  final List toprating;
+  final List upcoming;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class TopRatingMovies extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(left: 15),
               child: Text(
-                "Top Rated",
+                "Upcoming",
                 style: TextStyle(fontFamily: 'Fontilo', fontSize: 25),
               ),
             ),
@@ -36,21 +36,21 @@ class TopRatingMovies extends StatelessWidget {
                                       image: DecorationImage(
                                           image: NetworkImage(
                                               'https://image.tmdb.org/t/p/w500' +
-                                                  toprating[index]
+                                                  upcoming[index]
                                                       ['poster_path']))),
                                 ),
                                 SizedBox(height: 5),
                                 Container(
                                     child: Text(
-                                  toprating[index]['title'] != null
-                                      ? toprating[index]['title']
+                                  upcoming[index]['title'] != null
+                                      ? upcoming[index]['title']
                                       : "Title NOT available",
                                   style: TextStyle(fontFamily: 'Fontilo'),
                                   textAlign: TextAlign.center,
                                 ))
                               ])));
                     }),
-                    itemCount: toprating.length))
+                    itemCount: upcoming.length))
           ],
         ));
   }
